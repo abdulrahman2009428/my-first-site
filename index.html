@@ -1,21 +1,21 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>موقعي الجديد</title>
+  <title>حاسبة الخصومات</title>
   <style>
     body {
+      font-family: sans-serif;
       text-align: center;
-      font-family: Arial, sans-serif;
       margin-top: 50px;
     }
-    h1 {
-      font-size: 36px;
-      color: #333;
-    }
-    p {
-      font-size: 22px;
-      color: #555;
+    input {
+      padding: 10px;
+      font-size: 18px;
+      margin: 10px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
     button {
       padding: 12px 25px;
@@ -25,19 +25,41 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 15px;
+    }
+    h2 {
+      color: #28a745;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <h1>أهلاً بك في موقعي!!</h1>
-  <p>.أنا بتعلم برمجة وببني موقعي بنفسي</p>
-  <button onclick="calculate()">احسب الخصم</button>
-<script>
-  function calculate() {
-    alert("أهلاً بك! الحساب شغال تمام وفي الخطوة الجاية هنخليه يحسب الخصم!");
-  }
-</script>
+  <h1>حاسبة الخصم للمحلات 🏷️</h1>
+  
+  <input type="number" id="price" placeholder="أدخل السعر (مثلاً 200)">
+  <br>
+  <input type="number" id="discount" placeholder="نسبة الخصم % (مثلاً 10)">
+  <br>
+  <button onclick="calculateDiscount()">احسب السعر النهائي</button>
+
+  <h2 id="result"></h2>
+
+  <script>
+    function calculateDiscount() {
+      let price = document.getElementById("price").value;
+      let discount = document.getElementById("discount").value;
+
+      if (price === "" || discount === "") {
+        alert("من فضلك أدخل السعر ونسبة الخصم أولاً!");
+        return;
+      }
+
+      let discountAmount = (price * discount) / 100;
+      let finalPrice = price - discountAmount;
+
+      document.getElementById("result").innerText = "السعر بعد الخصم: " + finalPrice + " جنيه";
+    }
+  </script>
+
 </body>
 </html>
