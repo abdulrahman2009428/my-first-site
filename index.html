@@ -2,61 +2,71 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>حاسبة الخصومات</title>
+  <!-- السطر ده هو اللي بيكبر الكلام ويخليه متناسق مع شاشة الموبايل -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة الخصم</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
-      padding: 40px 20px;
-      background-color: #f8f9fa;
+      padding: 20px 15px;
+      background-color: #f4f6f9;
     }
     .calculator-card {
-      max-width: 350px;
-      margin: 0 auto;
+      max-width: 400px;
+      margin: 20px auto;
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 26px;
+      color: #333;
+      margin-bottom: 20px;
     }
     input {
-      padding: 12px;
-      font-size: 16px;
-      margin: 8px 0;
-      width: 90%;
-      border-radius: 6px;
+      padding: 14px;
+      font-size: 18px;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 8px;
       border: 1px solid #ccc;
       box-sizing: border-box;
+      text-align: center;
     }
     button {
-      padding: 12px;
-      font-size: 18px;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      width: 90%;
-      margin-top: 10px;
+      width: 100%;
+      margin-top: 15px;
     }
     h2 {
       color: #28a745;
-      margin-top: 20px;
-      font-size: 20px;
+      margin-top: 25px;
+      font-size: 22px;
     }
   </style>
 </head>
 <body>
 
-  <h1>حاسبة الخصم للمحلات 🏷️</h1>
-  
-  <input type="number" id="price" placeholder="أدخل السعر (مثلاً 200)">
-  <br>
-  <input type="number" id="discount" placeholder="نسبة الخصم % (مثلاً 10)">
-  <br>
-  <button onclick="calculateDiscount()">احسب السعر النهائي</button>
+  <div class="calculator-card">
+    <h1>حاسبة الخصم للمحلات 🏷️</h1>
+    
+    <input type="number" id="price" placeholder="أدخل السعر (مثلاً 1000)">
+    <input type="number" id="discount" placeholder="نسبة الخصم % (مثلاً 50)">
+    
+    <button onclick="calculateDiscount()">احسب السعر النهائي</button>
 
-  <h2 id="result"></h2>
+    <h2 id="result"></h2>
+  </div>
 
   <script>
     function calculateDiscount() {
